@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include(GNUInstallDirs)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED HINTS $ENV{Qt6_DIR} $ENV{Qt5_DIR})
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 set(qt_rappor_headers
