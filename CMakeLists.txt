@@ -22,7 +22,7 @@ set(QT_RAPPOR_SRC
     qt_hash_impl.cc
     std_rand_impl.cc
 )
-add_library(qt-rappor ${QT_RAPPOR_SRC})
+add_library(qt-rappor SHARED ${QT_RAPPOR_SRC})
 set_target_properties(qt-rappor PROPERTIES
     POSITION_INDEPENDENT_CODE True
     VERSION ${PROJECT_VERSION}
