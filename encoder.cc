@@ -328,8 +328,8 @@ bool Encoder::EncodeString(const std::string& value,
   hmac_out.resize(num_bits);  // Signal to HmacDrbg about desired output size.
   // Call HmacDrbg
   std::string hmac_value =  kHmacPrrPrefix + encoder_id_;
-  for (size_t i = 0; i < bloom_out.size(); ++i) {
-    hmac_value.append(reinterpret_cast<char *>(&bloom_out[i]), 1);
+  for (unsigned char & i : bloom_out) {
+    hmac_value.append(reinterpret_cast<char *>(&i), 1);
   }
   deps_.hmac_func_(deps_.client_secret_, hmac_value, &hmac_out);
   if (static_cast<int>(hmac_out.size()) != num_bits) {
